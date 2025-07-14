@@ -1,23 +1,20 @@
-/* Reset + base styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  background: #fef7f9;
+  margin: 0;
   font-family: 'Georgia', serif;
+  background: #fef7f9;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
   padding: 20px;
 }
 
 .ecard-container {
-  max-width: 600px;
   width: 100%;
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .ecard {
@@ -26,42 +23,5 @@ body {
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   text-align: center;
-}
-
-.flower {
-  max-width: 100px;
-  margin-bottom: 20px;
-}
-
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-  color: #b85c8c;
-}
-
-.date, .location, .message {
-  font-size: 1.1rem;
-  margin-bottom: 10px;
-  color: #3d2c2c;
-}
-
-.rsvp-button {
-  display: inline-block;
-  margin-top: 20px;
-  background-color: #b85c8c;
-  color: white;
-  text-decoration: none;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-weight: bold;
-  transition: background 0.3s ease;
-}
-
-.rsvp-button:hover {
-  background-color: #a24b7a;
-}
-
-audio {
-  margin-top: 20px;
   width: 100%;
 }
