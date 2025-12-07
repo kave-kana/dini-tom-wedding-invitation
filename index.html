@@ -1,26 +1,277 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>[Bride] & [Groom] - Wedding Invite</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tomasz & Dinesha — Wedding Invite</title>
+
+    <!-- Fonts & Styles -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Cormorant+Garamond:wght@300;400;600&display=swap">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/scroll.css">
 </head>
+
 <body>
-  <div class="ecard-container">
-    <div class="ecard">
-      <!--<img src="images/header-flower.png" alt="Flower Decoration" class="flower" />-->
-      <h1>[Bride] & [Groom]</h1>
-      <p class="date">15 August 2025</p>
-      <p class="location">London, UK</p>
-      <p class="message">You're invited to celebrate our special day!</p>
 
-      <a class="rsvp-button" href="https://forms.gle/your-rsvp-link" target="_blank">RSVP Here</a>
+    <!-- HERO -->
+    <header class="hero-hero" role="banner">
+        <div class="bg" aria-hidden="true"></div>
 
-      <audio controls autoplay loop>
-        <!--<source src="music/song.mp3" type="audio/mpeg">-->
-      </audio>
-    </div>
-  </div>
+        <div class="hero-content">
+            <div class="divider"></div>
+            <h1 class="names">TOMASZ &amp; DINESHA</h1>
+            <div class="divider"></div>
+            <p class="date">August 30, 2026</p>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- COUNTDOWN -->
+        <section class="wrap" aria-labelledby="countdown-heading">
+            <div class="section-inner countdown">
+                <h2 class="countdown-title" id="countdown-heading">Countdown to the Big Day</h2>
+
+                <div class="countdown-box">
+                    <div class="time-block">
+                        <div class="time" id="days">00</div>
+                        <p>Days</p>
+                    </div>
+                    <div class="time-block">
+                        <div class="time" id="hours">00</div>
+                        <p>Hours</p>
+                    </div>
+                    <div class="time-block">
+                        <div class="time" id="minutes">00</div>
+                        <p>Minutes</p>
+                    </div>
+                    <div class="time-block">
+                        <div class="time" id="seconds">00</div>
+                        <p>Seconds</p>
+                    </div>
+                </div>
+
+                <div class="countdown-buttons">
+                    <a href="#" class="cta-btn">Save the Date</a>
+                    <a href="#" class="cta-btn">RSVP</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ATTENDANCE COUNTER -->
+        <section class="wrap" aria-labelledby="attend-heading">
+            <div class="section-inner attend-box">
+                <h3 class="title" id="attend-heading">Guests Attending</h3>
+
+                <div class="attend-counter">
+                    <div class="attend-number">00</div>
+                    <p class="attend-label">Confirmed Guests</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- STORY -->
+        <section class="wrap" aria-labelledby="story-heading">
+            <div class="section-inner story">
+
+                <div style="max-width:900px;margin:0 auto;text-align:center;">
+                    <div style="width:60px;height:1px;background:rgba(0,0,0,0.12);margin:0 auto 1.5rem;"></div>
+                </div>
+
+                <div class="lead">
+                    <div class="drop-letter">I</div>
+                    <div>
+                        <p id="story-heading">
+                            f we had it our way, all of us would be on a pontoon gambling boat this weekend with
+                            Dark and Stormy’s in hand, setting sail for 80 degree weather. Since our parents have
+                            been patiently waiting for a ceremony though, we decided June nuptials on the edge
+                            of the world would suffice. There are plenty of wish lanterns to be lit and bottles of
+                            champagne waiting to be popped — all we need are your lovely faces.
+                        </p>
+                        <div class="signature">— Tomasz &amp; Dinesha</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section class="wrap" aria-labelledby="about-heading">
+            <div class="section-inner about">
+                <div>
+                    <h3 class="title" id="about-heading">The Couple</h3>
+                    <p class="bio">
+                        Tomasz &amp; Dinesha met in the summer months and have since travelled, cooked,
+                        and laughed their way through many days together. They love music, old books,
+                        and rainy-city walks. Please join them as they celebrate with family and friends.
+                    </p>
+                </div>
+
+                <figure>
+                    <img class="portrait" src="images/wed1.jpg" alt="Couple portrait in black and white">
+                </figure>
+            </div>
+        </section>
+
+        <!-- SCHEDULE -->
+        <section class="wrap" aria-labelledby="schedule-heading">
+            <h3 class="title" id="schedule-heading">Schedule</h3>
+
+            <div class="schedule-container">
+
+                <!-- LEFT SIDE -->
+                <div class="event-content">
+
+                    <div class="event-section active" id="arrival">
+                        <img src="images/cute1.jpg" alt="Arrival of guests image">
+                        <div class="event-details">
+                            <h4>Arrival of Guests</h4>
+                            <h5>09:00AM</h5>
+                            <p>Begin the day with warm smiles and blessings as we welcome our cherished guests.</p>
+                        </div>
+                    </div>
+
+                    <div class="event-section" id="ceremony">
+                        <img src="images/cute2.jpg" alt="Wedding ceremony image">
+                        <div class="event-details">
+                            <h4>Wedding Ceremony</h4>
+                            <h5>10:30AM</h5>
+                            <p>Join us for the sacred rituals and traditions as we exchange our vows.</p>
+                        </div>
+                    </div>
+
+                    <div class="event-section" id="lunch">
+                        <img src="images/cute3.jpg" alt="Lunch image">
+                        <div class="event-details">
+                            <h4>Lunch</h4>
+                            <h5>13:00PM</h5>
+                            <p>Enjoy a lovingly prepared feast celebrating our heritage and flavours.</p>
+                        </div>
+                    </div>
+
+                    <div class="event-section" id="closing">
+                        <img src="images/cute4.jpg" alt="Closing ceremony image">
+                        <div class="event-details">
+                            <h4>Closing Ceremony & Farewell</h4>
+                            <h5>16:00PM</h5>
+                            <p>With hearts full of joy and gratitude, we conclude the celebration.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT SIDE -->
+                <div class="event-sidebar">
+                    <h4>JASMINE BANQUET HALL</h4>
+                    <p>
+                        Global Business & Convention Centre<br>
+                        8, Jalan 19/1, Seksyen 19<br>
+                        46300 Petaling Jaya<br>
+                        Selangor, Malaysia
+                    </p>
+
+                    <a href="#" class="btn-map">VIEW ON MAP</a>
+
+                    <p><strong>Sunday</strong><br>August 30th</p>
+
+                    <div class="contact">
+                        <strong>Contact</strong><br>
+                        Tomasz (WhatsApp)<br>
+                        Dinesha (WhatsApp)<br>
+                        Dr. Kanagasundaram (WhatsApp)
+                    </div>
+                </div>
+            </div>
+
+            <!-- TIMELINE BUTTONS -->
+            <div class="timeline">
+                <button class="active" data-event="arrival"></button>
+                <button data-event="ceremony"></button>
+                <button data-event="lunch"></button>
+                <button data-event="closing"></button>
+            </div>
+
+            <div class="timeline-labels">
+                <span>Arrival of Guests</span>
+                <span>Wedding Ceremony</span>
+                <span>Lunch</span>
+                <span>Closing Ceremony & Farewell</span>
+            </div>
+
+        </section>
+
+        <!-- COMMENT SECTION -->
+        <section class="wrap" aria-labelledby="comment-heading">
+            <div class="section-inner comment">
+                <h3 class="title" id="comment-heading">Leave a Message</h3>
+
+                <div class="message-form">
+                    <input type="text" id="guestName" placeholder="Your Name">
+                    <textarea id="guestMessage" placeholder="Write a message..."></textarea>
+                    <button onclick="addMessage()">Send</button>
+                </div>
+
+                <div class="message-list" id="messageList"></div>
+            </div>
+        </section>
+
+        <!-- RSVP -->
+        <section class="wrap" aria-labelledby="rsvp-heading">
+            <div class="section-inner rsvp-card">
+
+                <h3 class="title" id="rsvp-heading">RSVP</h3>
+                <p class="small" style="margin-bottom:1rem;">Please fill and submit — form is static for now.</p>
+
+                <form class="rsvp-grid" onsubmit="event.preventDefault(); alert('This is a static demo RSVP.');">
+
+                    <label class="small">Your name
+                        <input type="text" placeholder="Your full name" required>
+                    </label>
+
+                    <label class="small">Email
+                        <input type="email" placeholder="you@example.com" required>
+                    </label>
+
+                    <label class="small">Attending?
+                        <select>
+                            <option>I am attending</option>
+                            <option>Regretfully decline</option>
+                        </select>
+                    </label>
+
+                    <label class="small">Guests
+                        <select>
+                            <option>Myself</option>
+                            <option>+1 Guest</option>
+                            <option>Family</option>
+                        </select>
+                    </label>
+
+                    <label class="small">Phone
+                        <input type="tel" placeholder="+6012345xxxx">
+                    </label>
+
+                    <button type="submit">Submit RSVP</button>
+
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p class="small">Tomasz &amp; Dinesha • August 30, 2026</p>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="js/countdown.js"></script>
+    <script src="js/timeline.js"></script>
+    <script src="js/comment.js"></script>
+
 </body>
+
 </html>
