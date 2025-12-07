@@ -1,58 +1,810 @@
-/* style.css */
+/* ----------------------------------------------------------
+   ROOT VARIABLES
+---------------------------------------------------------- */
+:root {
+  --bg: #ffffff;
+  --text: #111111;
+  --muted: #6b6b6b;
+  --accent: #111111;
+  --serif-heading: 'Playfair Display', serif;
+  --serif-body: 'Cormorant Garamond', serif;
+  --max-width: 1100px;
+  --gap: 2.5rem;
+}
+
+/* ----------------------------------------------------------
+   RESET & BASE
+---------------------------------------------------------- */
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
+html,
 body {
-  background: #fef7f9;
-  font-family: 'Georgia', serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 20px;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
-.ecard {
+body {
+  margin: 0;
+  font-family: var(--serif-body);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ----------------------------------------------------------
+   LAYOUT WRAPPER
+---------------------------------------------------------- */
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 3rem 1.25rem;
+}
+
+/* ----------------------------------------------------------
+   HERO
+---------------------------------------------------------- */
+.hero-hero {
+  position: relative;
+  height: 100vh;
+  height: 100dvh;
+  height: 100svh;
+  min-height: 360px;
+  /* for small phones */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.hero-hero .bg {
+  position: absolute;
+  inset: 0;
+  background: url('images/wed1.jpg') center/cover no-repeat;
+  filter: grayscale(100%) contrast(1.02) brightness(0.95);
+  transform: scale(1.03);
+  z-index: 0;
+}
+
+.hero-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.25) 0%,
+      rgba(255, 255, 255, 0.45) 50%,
+      rgba(255, 255, 255, 0.6) 100%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  width: 90%;
+  max-width: 900px;
+  padding: 3rem 1rem;
+}
+
+.divider {
+  height: 1px;
+  margin: 2rem auto;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.names {
+  font-family: var(--serif-heading);
+  font-size: clamp(36px, 6.5vw, 72px);
+  letter-spacing: 6px;
+  font-weight: 700;
+  margin: 0.25rem 0;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.date {
+  margin-top: 1.25rem;
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+
+/* BUTTON */
+.cta-btn {
+  padding: 12px 28px;
+  border: 1px solid #000;
+  font-family: var(--serif-body);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #000;
+  transition: 0.3s ease;
+}
+
+.cta-btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* ----------------------------------------------------------
+   SECTIONS (GENERAL)
+---------------------------------------------------------- */
+section {
+  padding: calc(var(--gap) * 0.9) 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.section-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* ----------------------------------------------------------
+   COUNTDOWN
+---------------------------------------------------------- */
+.countdown {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.countdown-title {
+  font-family: var(--serif-heading);
+  font-size: 2.4rem;
+  margin-bottom: 35px;
+  opacity: 0;
+  animation: fadeIn 1.2s ease forwards;
+}
+
+.countdown-box {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.time-block {
   background: white;
-  padding: 2rem;
-  border-radius: 20px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.1);
-  max-width: 600px;
+  padding: 25px 32px;
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.07);
+  min-width: 120px;
+  opacity: 0;
+  animation: fadeIn 1.2s ease forwards;
+}
+
+.time {
+  font-family: var(--serif-heading);
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1;
+  height: 3.2rem;
+  overflow: hidden;
+}
+
+.time-block p {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  color: #555;
+}
+
+.countdown-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* -----------------------------------------
+   ATTENDANCE COUNTER
+----------------------------------------- */
+.attend-box {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.attend-counter {
+  display: inline-block;
+  padding: 40px 60px;
+  border: 1px solid #111;
+  border-radius: 6px;
+  margin-top: 1.5rem;
+}
+
+.attend-number {
+  font-family: var(--serif-heading);
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 2px;
+  color: #111;
+}
+
+.attend-label {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+/* ----------------------------------------------------------
+   STORY
+---------------------------------------------------------- */
+.lead {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.drop-letter {
+  font-family: var(--serif-heading);
+  font-size: 5.2rem;
+  line-height: 0.85;
+  margin-right: 18px;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.lead p {
+  margin: 0;
+  font-size: 1.15rem;
+  color: var(--muted);
+  max-width: 66ch;
+  text-align: justify;
+}
+
+.signature {
+  margin-top: 1.25rem;
+  font-weight: 600;
+}
+
+/* ----------------------------------------------------------
+   ABOUT
+---------------------------------------------------------- */
+.about {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2.5rem;
+  align-items: center;
+  padding-top: 1rem;
+}
+
+.about .bio {
+  font-size: 1.05rem;
+  color: var(--muted);
+}
+
+.portrait {
   width: 100%;
+  max-width: 320px;
+  filter: grayscale(100%) contrast(1.02) brightness(0.95);
+  border-radius: 4px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.title {
+  font-family: var(--serif-heading);
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+/* ----------------------------------------------------------
+   SCHEDULE
+---------------------------------------------------------- */
+.schedule-container {
+  width: 85%;
+  margin: 0 auto 60px;
+  border: 1px solid #ccc;
+  padding: 40px;
+  display: flex;
+  gap: 40px;
+}
+
+.event-content {
+  flex: 1;
+}
+
+.event-section {
+  display: none;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.event-section.active {
+  display: flex;
+}
+
+.event-section img {
+  width: 220px;
+  border-radius: 4px;
+}
+
+.event-details {
+  flex: 1;
+}
+
+.event-details h4,
+.event-details h5 {
+  font-family: var(--serif-heading);
+}
+
+.event-details h4 {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.event-details h5 {
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.event-details p {
+  margin-bottom: 15px;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+/* SIDEBAR */
+.event-sidebar {
+  width: 280px;
+  border-left: 2px solid #222;
+  padding-left: 30px;
+}
+
+.event-sidebar h4 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.event-sidebar p {
+  font-size: 0.95rem;
+  margin: 5px 0;
+}
+
+.btn-map {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  font-family: var(--serif-body);
+  padding: 10px 22px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  margin: 15px 0;
+}
+
+/* ----------------------------------------------------------
+   TIMELINE
+---------------------------------------------------------- */
+.timeline {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 50px auto 10px;
+  width: 85%;
+  height: 2px;
+  background: #111;
+}
+
+.timeline button {
+  position: relative;
+  background: #fff;
+  border: 2px solid #111;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  transform: translateY(0%);
+}
+
+.timeline button.active {
+  background: #111;
+}
+
+.timeline-labels {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 10px auto;
+  font-family: var(--serif-heading);
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+
+.timeline-labels span {
+  display: inline-block;
+  width: 20%;
   text-align: center;
 }
 
-h1 {
-  font-size: 2.5rem;
-  color: #b85c8c;
-  margin-bottom: 10px;
+/* ----------------------------------------------------------
+   COMMENT SECTION
+---------------------------------------------------------- */
+.comment {
+  max-width: 650px;
+  margin: 40px auto;
+  text-align: center;
 }
 
-.date, .location, .message {
-  font-size: 1.1rem;
-  margin-bottom: 10px;
-  color: #3d2c2c;
+.message-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
 }
 
-.rsvp-button {
-  display: inline-block;
-  margin-top: 20px;
-  background-color: #b85c8c;
-  color: white;
-  text-decoration: none;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-weight: bold;
-}
-
-.rsvp-button:hover {
-  background-color: #a24b7a;
-}
-
-audio {
-  margin-top: 20px;
+.message-form input,
+.message-form textarea {
   width: 100%;
+  padding: 12px;
+  border: 1px solid #000;
+  font-size: 16px;
+  background: #fff;
+  font-family: inherit;
+}
+
+.message-form textarea {
+  height: 100px;
+  resize: none;
+}
+
+.message-form button {
+  padding: 12px 28px;
+  border: 1px solid #000;
+  font-family: var(--serif-body);
+  font-size: 1rem;
+  text-transform: uppercase;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: 0.3s ease;
+}
+
+/*
+  padding: 12px 28px;
+  border: 1px solid #000;
+  font-family: var(--serif-body);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #000;
+  transition: 0.3s ease;
+*/
+
+.message-form button:hover {
+  background: #fff;
+  color: #000;
+}
+
+.message-list {
+  margin-top: 35px;
+  max-height: 250px;
+  overflow-y: auto;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.message-item {
+  padding-left: 8px;
+  border-left: 2px solid #000;
+  animation: fadeIn 0.4s ease;
+}
+
+.message-item .name {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.message-item .text {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+/* ----------------------------------------------------------
+   RSVP
+---------------------------------------------------------- */
+.rsvp-card {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.rsvp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+
+.rsvp-grid input,
+.rsvp-grid select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #000;
+  font-size: 0.95rem;
+  background: transparent;
+  font-family: var(--serif-body);
+}
+
+.rsvp-grid button {
+  padding: 12px 28px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  font-family: var(--serif-body);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #fff;
+  transition: 0.3s ease;
+  font-weight: 600;
+  cursor: pointer;
+  grid-column: span 2;
+}
+
+.rsvp-grid button:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* ----------------------------------------------------------
+   FOOTER
+---------------------------------------------------------- */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ----------------------------------------------------------
+   RESPONSIVE
+---------------------------------------------------------- */
+/* ----------------------------------------------------------
+   MOBILE — GENERAL
+---------------------------------------------------------- */
+@media (max-width: 768px) {
+
+  .wrap {
+    padding: 2rem 1rem;
+  }
+
+  .title {
+    text-align: center;
+  }
+
+  /* Typography scaling */
+  .names {
+    font-size: 2.2rem;
+    letter-spacing: 3px;
+  }
+
+  .drop-letter {
+    font-size: 3.6rem;
+  }
+
+  .lead {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .lead p {
+    font-size: 1rem;
+    text-align: left;
+  }
+
+  /* Hero */
+  .hero-hero {
+    height: 55vh;
+    min-height: 360px;
+  }
+
+  .hero-content {
+    padding: 2rem 1rem;
+  }
+
+  .divider {
+    margin: 1.5rem auto;
+  }
+
+  /* Countdown */
+  .countdown-box {
+    gap: 20px;
+  }
+
+  .time-block {
+    min-width: 95px;
+    padding: 20px;
+  }
+
+  .time {
+    font-size: 2rem;
+    height: 2.3rem;
+  }
+
+  /* Counter */
+  .attend-counter {
+    padding: 30px 40px;
+  }
+
+  .attend-number {
+    font-size: 3rem;
+  }
+
+  /* About Section */
+  .about {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .portrait {
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  /* Schedule Layout */
+  .schedule-container {
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    padding: 25px 15px;
+    gap: 25px;
+  }
+
+  .event-content {
+    order: 1;
+  }
+
+  .event-section {
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .event-section img {
+    width: 100%;
+    max-width: 240px;
+  }
+
+  .event-details {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .event-sidebar {
+    order: 2;
+    width: 100%;
+    border-left: none;
+    border-top: 2px solid #222;
+    padding: 20px 0 0 0;
+    text-align: center;
+  }
+
+  /* Timeline */
+  .timeline {
+    width: 90%;
+    height: 2px;
+    flex-direction: row;
+    background: #111;
+    gap: 0;
+  }
+
+  .timeline button {
+    width: 18px;
+    height: 18px;
+    transform: translateY(0);
+  }
+
+  .timeline-labels {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0;
+    text-align: center;
+    font-size: 0.75rem;
+  }
+
+  .timeline-labels span {
+    width: 15%;
+    line-height: 1.2;
+  }
+
+  /* Message Section */
+  .comment {
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  .message-list {
+    max-height: 220px;
+  }
+
+  /* RSVP */
+  .rsvp-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rsvp-grid button {
+    justify-self: center;
+    width: 100%;
+  }
+}
+
+/* ----------------------------------------------------------
+   SMALL PHONES (max-width: 480px)
+---------------------------------------------------------- */
+@media (max-width: 480px) {
+
+  .names {
+    font-size: 1.9rem;
+    letter-spacing: 2px;
+  }
+
+  .hero-hero {
+    min-height: 320px;
+  }
+
+  .time-block {
+    min-width: 80px;
+    padding: 16px;
+  }
+
+  .time {
+    font-size: 1.7rem;
+  }
+
+  .timeline button {
+    width: 16px;
+    height: 16px;
+  }
+
+  .event-section img {
+    max-width: 200px;
+  }
+
+  .lead p {
+    font-size: 0.95rem;
+  }
 }
