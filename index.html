@@ -21,83 +21,47 @@
 
         <div class="hero-content">
             <div class="divider"></div>
-            <h1 class="names">TOMASZ &amp; DINESHA</h1>
+            <h1 class="names">
+                <span class="initial">T</span>omasz <br>
+                &amp;<br>
+                <span class="initial">D</span>inesha
+            </h1>
             <div class="divider"></div>
             <p class="date">August 30, 2026</p>
+
+            <div class="countdown-box">
+                <div class="time-block">
+                    <div class="time" id="days">00</div>
+                    <p>Days</p>
+                </div>
+                <div class="time-block">
+                    <div class="time" id="hours">00</div>
+                    <p>Hours</p>
+                </div>
+                <div class="time-block">
+                    <div class="time" id="minutes">00</div>
+                    <p>Minutes</p>
+                </div>
+                <div class="time-block">
+                    <div class="time" id="seconds">00</div>
+                    <p>Seconds</p>
+                </div>
+            </div>
+
+            <div class="countdown-buttons">
+                <a href="#" class="cta-btn">Save the Date</a>
+                <a href="#" class="cta-btn">RSVP</a>
+            </div>
+
+            <div class="attend-counter">
+                <div class="attend-number">00</div>
+                <p class="attend-label">Confirmed Guests</p>
+            </div>
         </div>
+
     </header>
 
     <main>
-
-        <!-- COUNTDOWN -->
-        <section class="wrap" aria-labelledby="countdown-heading">
-            <div class="section-inner countdown">
-                <h2 class="countdown-title" id="countdown-heading">Countdown to the Big Day</h2>
-
-                <div class="countdown-box">
-                    <div class="time-block">
-                        <div class="time" id="days">00</div>
-                        <p>Days</p>
-                    </div>
-                    <div class="time-block">
-                        <div class="time" id="hours">00</div>
-                        <p>Hours</p>
-                    </div>
-                    <div class="time-block">
-                        <div class="time" id="minutes">00</div>
-                        <p>Minutes</p>
-                    </div>
-                    <div class="time-block">
-                        <div class="time" id="seconds">00</div>
-                        <p>Seconds</p>
-                    </div>
-                </div>
-
-                <div class="countdown-buttons">
-                    <a href="#" class="cta-btn">Save the Date</a>
-                    <a href="#" class="cta-btn">RSVP</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ATTENDANCE COUNTER -->
-        <section class="wrap" aria-labelledby="attend-heading">
-            <div class="section-inner attend-box">
-                <h3 class="title" id="attend-heading">Guests Attending</h3>
-
-                <div class="attend-counter">
-                    <div class="attend-number">00</div>
-                    <p class="attend-label">Confirmed Guests</p>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- STORY -->
-        <section class="wrap" aria-labelledby="story-heading">
-            <div class="section-inner story">
-
-                <div style="max-width:900px;margin:0 auto;text-align:center;">
-                    <div style="width:60px;height:1px;background:rgba(0,0,0,0.12);margin:0 auto 1.5rem;"></div>
-                </div>
-
-                <div class="lead">
-                    <div class="drop-letter">I</div>
-                    <div>
-                        <p id="story-heading">
-                            f we had it our way, all of us would be on a pontoon gambling boat this weekend with
-                            Dark and Stormy’s in hand, setting sail for 80 degree weather. Since our parents have
-                            been patiently waiting for a ceremony though, we decided June nuptials on the edge
-                            of the world would suffice. There are plenty of wish lanterns to be lit and bottles of
-                            champagne waiting to be popped — all we need are your lovely faces.
-                        </p>
-                        <div class="signature">— Tomasz &amp; Dinesha</div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
         <!-- ABOUT -->
         <section class="wrap" aria-labelledby="about-heading">
             <div class="section-inner about">
@@ -111,7 +75,7 @@
                 </div>
 
                 <figure>
-                    <img class="portrait" src="images/wed1.jpg" alt="Couple portrait in black and white">
+                    <img class="portrait" src="images/wed3.jpg" alt="Couple portrait in black and white">
                 </figure>
             </div>
         </section>
@@ -122,66 +86,49 @@
 
             <div class="schedule-container">
 
-                <!-- LEFT SIDE -->
-                <div class="event-content">
-
-                    <div class="event-section active" id="arrival">
-                        <img src="images/cute1.jpg" alt="Arrival of guests image">
-                        <div class="event-details">
-                            <h4>Arrival of Guests</h4>
-                            <h5>09:00AM</h5>
-                            <p>Begin the day with warm smiles and blessings as we welcome our cherished guests.</p>
+                <div class="events-slider">
+                    <div class="events-track">
+                        <!-- Event 1 -->
+                        <div class="event-slide">
+                            <img src="images/cute1.jpg" alt="Arrival" class="event-image">
+                            <div class="event-content">
+                                <h4>Arrival</h4>
+                                <span class="event-time">09:00 AM</span>
+                                <p>Begin the day with warm smiles and blessings as we welcome our cherished guests.</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="event-section" id="ceremony">
-                        <img src="images/cute2.jpg" alt="Wedding ceremony image">
-                        <div class="event-details">
-                            <h4>Wedding Ceremony</h4>
-                            <h5>10:30AM</h5>
-                            <p>Join us for the sacred rituals and traditions as we exchange our vows.</p>
+                        <!-- Event 2 -->
+                        <div class="event-slide">
+                            <img src="images/cute2.jpg" alt="Ceremony" class="event-image">
+                            <div class="event-content">
+                                <h4>Ceremony</h4>
+                                <span class="event-time">10:30 AM</span>
+                                <p>Join us for the sacred rituals and traditions as we exchange our vows.</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="event-section" id="lunch">
-                        <img src="images/cute3.jpg" alt="Lunch image">
-                        <div class="event-details">
-                            <h4>Lunch</h4>
-                            <h5>13:00PM</h5>
-                            <p>Enjoy a lovingly prepared feast celebrating our heritage and flavours.</p>
+                        <!-- Event 3 -->
+                        <div class="event-slide">
+                            <img src="images/cute3.jpg" alt="Lunch" class="event-image">
+                            <div class="event-content">
+                                <h4>Lunch</h4>
+                                <span class="event-time">01:00 PM</span>
+                                <p>Enjoy a lovingly prepared feast, celebrating our heritage and flavours of our
+                                    tradition.</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="event-section" id="closing">
-                        <img src="images/cute4.jpg" alt="Closing ceremony image">
-                        <div class="event-details">
-                            <h4>Closing Ceremony & Farewell</h4>
-                            <h5>16:00PM</h5>
-                            <p>With hearts full of joy and gratitude, we conclude the celebration.</p>
+                        <!-- Event 4 -->
+                        <div class="event-slide">
+                            <img src="images/cute4.jpg" alt="Closing" class="event-image">
+                            <div class="event-content">
+                                <h4>Closing</h4>
+                                <span class="event-time">04:00 PM</span>
+                                <p>With hearts full of joy and gratitude, we conclude the celebration of love and
+                                    togetherness.</p>
+                            </div>
                         </div>
-                    </div>
-
-                </div>
-
-                <!-- RIGHT SIDE -->
-                <div class="event-sidebar">
-                    <h4>JASMINE BANQUET HALL</h4>
-                    <p>
-                        Global Business & Convention Centre<br>
-                        8, Jalan 19/1, Seksyen 19<br>
-                        46300 Petaling Jaya<br>
-                        Selangor, Malaysia
-                    </p>
-
-                    <a href="#" class="btn-map">VIEW ON MAP</a>
-
-                    <p><strong>Sunday</strong><br>August 30th</p>
-
-                    <div class="contact">
-                        <strong>Contact</strong><br>
-                        Tomasz (WhatsApp)<br>
-                        Dinesha (WhatsApp)<br>
-                        Dr. Kanagasundaram (WhatsApp)
                     </div>
                 </div>
             </div>
@@ -201,6 +148,162 @@
                 <span>Closing Ceremony & Farewell</span>
             </div>
 
+            <!-- Venue Info -->
+            <aside class="venue" aria-label="Venue & contact">
+                <h4 class="venue-title">Jasmine Banquet Hall</h4>
+
+                <div class="venue-block">
+                    <p class="venue-address">
+                        Global Business & Convention Centre<br>
+                        8, Jalan 19/1, Seksyen 19<br>
+                        46300 Petaling Jaya, Selangor<br>
+                        Malaysia
+                    </p>
+
+                    <p class="venue-date">
+                        <span>Sunday</span><br>
+                        August 30, 2026
+                    </p>
+
+                    <div class="venue-maps">
+                        <a class="map-btn" target="_blank"
+                            href="https://maps.google.com/?q=Global+Business+%26+Convention+Centre+Petaling+Jaya">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 21s6-5.33 6-10a6 6 0 0 0-12 0c0 4.67 6 10 6 10z" fill="none"
+                                    stroke="currentColor" stroke-width="1.5" />
+                                <circle cx="12" cy="11" r="2" fill="none" stroke="currentColor" stroke-width="1.5" />
+                            </svg>
+                            Google Maps
+                        </a>
+
+                        <a class="map-btn" target="_blank"
+                            href="https://waze.com/ul?q=Global+Business+%26+Convention+Centre+Petaling+Jaya">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M4 11a8 8 0 0 1 16 0v4l-3-1-2 1-2-1-2 1-2-1-3 1z" fill="none"
+                                    stroke="currentColor" stroke-width="1.5" />
+                                <circle cx="9" cy="11" r="1" fill="currentColor" />
+                                <circle cx="15" cy="11" r="1" fill="currentColor" />
+                            </svg>
+                            Waze
+                        </a>
+                    </div>
+                </div>
+
+                <div class="venue-contact static">
+                    <h5>Contact</h5>
+
+                    <ul class="contact-list">
+
+                        <!-- Bride's Father -->
+                        <li>
+                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M16 11c1.66 0 3 1.34 3 3v4h-4v-3a2 2 0 0 0-2-2H11" fill="none"
+                                    stroke="currentColor" stroke-width="1.5" />
+                                <circle cx="16" cy="7" r="2" fill="none" stroke="currentColor" stroke-width="1.5" />
+                                <circle cx="8" cy="7" r="2" fill="none" stroke="currentColor" stroke-width="1.5" />
+                                <path d="M5 18v-4c0-1.66 1.34-3 3-3" fill="none" stroke="currentColor"
+                                    stroke-width="1.5" />
+                            </svg>
+
+                            <div>
+                                <strong>Dr. Kanagasundaram</strong>
+                                <span class="role">Bride’s Father</span>
+
+                                <div class="contact-actions">
+                                    <a href="tel:+60125063488" aria-label="Call">
+                                        <!-- Phone -->
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M5 4l4 1-1.5 3a12 12 0 0 0 6 6l3-1.5 1 4-3 2c-6-2-10-6-12-12z"
+                                                fill="none" stroke="currentColor" stroke-width="1.5" />
+                                        </svg>
+                                        Call
+                                    </a>
+
+                                    <a href="https://wa.me/60125063488" target="_blank" aria-label="WhatsApp">
+                                        <!-- WhatsApp -->
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M20 12a8 8 0 1 1-14.3-5L4 20l4-1.7A8 8 0 0 1 20 12z" fill="none"
+                                                stroke="currentColor" stroke-width="1.5" />
+                                            <path d="M9 9c1 2 2 3 4 4" fill="none" stroke="currentColor"
+                                                stroke-width="1.5" />
+                                        </svg>
+                                        WhatsApp
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Bride -->
+                        <li>
+                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="12" cy="7" r="3" fill="none" stroke="currentColor" stroke-width="1.5" />
+                                <path d="M5 20l2-6h10l2 6" fill="none" stroke="currentColor" stroke-width="1.5" />
+                                <path d="M7 14l5-4 5 4" fill="none" stroke="currentColor" stroke-width="1.5" />
+                            </svg>
+
+                            <div>
+                                <strong>Dinesha</strong>
+                                <span class="role">Bride</span>
+
+                                <div class="contact-actions">
+                                    <a href="tel:+60125065557">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M5 4l4 1-1.5 3a12 12 0 0 0 6 6l3-1.5 1 4-3 2c-6-2-10-6-12-12z"
+                                                fill="none" stroke="currentColor" stroke-width="1.5" />
+                                        </svg>
+                                        Call (MY)
+                                    </a>
+
+                                    <a href="https://wa.me/60125065557" target="_blank">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M20 12a8 8 0 1 1-14.3-5L4 20l4-1.7A8 8 0 0 1 20 12z" fill="none"
+                                                stroke="currentColor" stroke-width="1.5" />
+                                            <path d="M9 9c1 2 2 3 4 4" fill="none" stroke="currentColor"
+                                                stroke-width="1.5" />
+                                        </svg>
+                                        WhatsApp
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Groom -->
+                        <li>
+                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="12" cy="7" r="3" fill="none" stroke="currentColor" stroke-width="1.5" />
+                                <path d="M8 20v-5l4-2 4 2v5" fill="none" stroke="currentColor" stroke-width="1.5" />
+                                <path d="M10 10l2 2 2-2" fill="none" stroke="currentColor" stroke-width="1.5" />
+                            </svg>
+
+                            <div>
+                                <strong>Tomasz</strong>
+                                <span class="role">Groom</span>
+
+                                <div class="contact-actions">
+                                    <a href="tel:+447466774973">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M5 4l4 1-1.5 3a12 12 0 0 0 6 6l3-1.5 1 4-3 2c-6-2-10-6-12-12z"
+                                                fill="none" stroke="currentColor" stroke-width="1.5" />
+                                        </svg>
+                                        Call
+                                    </a>
+
+                                    <a href="https://wa.me/447466774973" target="_blank">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M20 12a8 8 0 1 1-14.3-5L4 20l4-1.7A8 8 0 0 1 20 12z" fill="none"
+                                                stroke="currentColor" stroke-width="1.5" />
+                                            <path d="M9 9c1 2 2 3 4 4" fill="none" stroke="currentColor"
+                                                stroke-width="1.5" />
+                                        </svg>
+                                        WhatsApp
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </aside>
         </section>
 
         <!-- COMMENT SECTION -->
@@ -275,5 +378,3 @@
 </body>
 
 </html>
-
-
