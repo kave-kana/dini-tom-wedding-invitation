@@ -15,50 +15,70 @@
 
 <body>
 
+    <!-- Page Loader -->
+    <div class="page-loader">
+        <div class="loader-ring"></div>
+        <p class="loader-text">Tomasz & Dinesha</p>
+    </div>
+
+    <!-- Music Control -->
+
     <!-- HERO -->
     <header class="hero-hero" role="banner">
         <div class="bg" aria-hidden="true"></div>
 
         <div class="hero-content">
-            <div class="divider"></div>
-            <h1 class="names">
-                <span class="initial">T</span>omasz <br>
-                &amp;<br>
-                <span class="initial">D</span>inesha
-            </h1>
-            <div class="divider"></div>
-            <p class="date">August 30, 2026</p>
-
-            <div class="countdown-box">
-                <div class="time-block">
-                    <div class="time" id="days">00</div>
-                    <p>Days</p>
-                </div>
-                <div class="time-block">
-                    <div class="time" id="hours">00</div>
-                    <p>Hours</p>
-                </div>
-                <div class="time-block">
-                    <div class="time" id="minutes">00</div>
-                    <p>Minutes</p>
-                </div>
-                <div class="time-block">
-                    <div class="time" id="seconds">00</div>
-                    <p>Seconds</p>
-                </div>
+            <div class="hero-top">
+                <div class="divider"></div>
+                <h1 class="names">
+                    <span class="initial">T</span>omasz <br>
+                    &amp;<br>
+                    <span class="initial">D</span>inesha
+                </h1>
+                <div class="divider"></div>
+                <p class="date">30.08.2026</p>
             </div>
+            <div class="hero-bottom">
+                <div class="countdown-box">
+                    <div class="time-block">
+                        <div class="time" id="days">00</div>
+                        <p>Days</p>
+                    </div>
+                    <div class="time-block">
+                        <div class="time" id="hours">00</div>
+                        <p>Hours</p>
+                    </div>
+                    <div class="time-block">
+                        <div class="time" id="minutes">00</div>
+                        <p>Minutes</p>
+                    </div>
+                    <div class="time-block">
+                        <div class="time" id="seconds">00</div>
+                        <p>Seconds</p>
+                    </div>
+                </div>
+                <div class="countdown-buttons">
+                    <a href="#" class="cta-btn" onclick="downloadCalendarEvent()">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z" />
+                        </svg>
+                        Save the Date
+                    </a>
+                    <a href="#rsvp" class="cta-btn">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        RSVP
+                    </a>
+                </div>
 
-            <div class="countdown-buttons">
-                <a href="#" class="cta-btn">Save the Date</a>
-                <a href="#" class="cta-btn">RSVP</a>
-            </div>
-
-            <div class="attend-counter">
-                <div class="attend-number">00</div>
-                <p class="attend-label">Confirmed Guests</p>
+                <div class="attend-counter">
+                    <div class="attend-number" id="attendeeCount">00</div>
+                    <p class="attend-label">Confirmed Guests</p>
+                </div>
             </div>
         </div>
-
     </header>
 
     <main>
@@ -75,7 +95,7 @@
                 </div>
 
                 <figure>
-                    <img class="portrait" src="images/wed3.jpg" alt="Couple portrait in black and white">
+                    <img class="portrait" src="pics/02.jpg" alt="Couple portrait in black and white">
                 </figure>
             </div>
         </section>
@@ -85,14 +105,13 @@
             <h3 class="title" id="schedule-heading">Schedule</h3>
 
             <div class="schedule-container">
-
                 <div class="events-slider">
                     <div class="events-track">
                         <!-- Event 1 -->
                         <div class="event-slide">
-                            <img src="images/cute1.jpg" alt="Arrival" class="event-image">
+                            <img src="pics/03A.png" alt="Arrival" class="event-image">
                             <div class="event-content">
-                                <h4>Arrival</h4>
+                                <h4>Arrival of Guests</h4>
                                 <span class="event-time">09:00 AM</span>
                                 <p>Begin the day with warm smiles and blessings as we welcome our cherished guests.</p>
                             </div>
@@ -100,9 +119,9 @@
 
                         <!-- Event 2 -->
                         <div class="event-slide">
-                            <img src="images/cute2.jpg" alt="Ceremony" class="event-image">
+                            <img src="pics/04.jpg" alt="Ceremony" class="event-image">
                             <div class="event-content">
-                                <h4>Ceremony</h4>
+                                <h4>Wedding Ceremony</h4>
                                 <span class="event-time">10:30 AM</span>
                                 <p>Join us for the sacred rituals and traditions as we exchange our vows.</p>
                             </div>
@@ -110,7 +129,7 @@
 
                         <!-- Event 3 -->
                         <div class="event-slide">
-                            <img src="images/cute3.jpg" alt="Lunch" class="event-image">
+                            <img src="pics/07.jpg" alt="Lunch" class="event-image">
                             <div class="event-content">
                                 <h4>Lunch</h4>
                                 <span class="event-time">01:00 PM</span>
@@ -121,9 +140,9 @@
 
                         <!-- Event 4 -->
                         <div class="event-slide">
-                            <img src="images/cute4.jpg" alt="Closing" class="event-image">
+                            <img src="pics/15.JPG" alt="Closing" class="event-image">
                             <div class="event-content">
-                                <h4>Closing</h4>
+                                <h4>Closing Ceremony & Farewell</h4>
                                 <span class="event-time">04:00 PM</span>
                                 <p>With hearts full of joy and gratitude, we conclude the celebration of love and
                                     togetherness.</p>
@@ -142,10 +161,10 @@
             </div>
 
             <div class="timeline-labels">
-                <span>Arrival of Guests</span>
-                <span>Wedding Ceremony</span>
+                <span>Arrival</span>
+                <span>Wedding</span>
                 <span>Lunch</span>
-                <span>Closing Ceremony & Farewell</span>
+                <span>Closing</span>
             </div>
 
             <!-- Venue Info -->
@@ -191,94 +210,16 @@
 
                 <div class="venue-contact static">
                     <h5>Contact</h5>
-
                     <ul class="contact-list">
-
-                        <!-- Bride's Father -->
-                        <li>
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M16 11c1.66 0 3 1.34 3 3v4h-4v-3a2 2 0 0 0-2-2H11" fill="none"
-                                    stroke="currentColor" stroke-width="1.5" />
-                                <circle cx="16" cy="7" r="2" fill="none" stroke="currentColor" stroke-width="1.5" />
-                                <circle cx="8" cy="7" r="2" fill="none" stroke="currentColor" stroke-width="1.5" />
-                                <path d="M5 18v-4c0-1.66 1.34-3 3-3" fill="none" stroke="currentColor"
-                                    stroke-width="1.5" />
-                            </svg>
-
-                            <div>
-                                <strong>Dr. Kanagasundaram</strong>
-                                <span class="role">Bride’s Father</span>
-
-                                <div class="contact-actions">
-                                    <a href="tel:+60125063488" aria-label="Call">
-                                        <!-- Phone -->
-                                        <svg viewBox="0 0 24 24">
-                                            <path d="M5 4l4 1-1.5 3a12 12 0 0 0 6 6l3-1.5 1 4-3 2c-6-2-10-6-12-12z"
-                                                fill="none" stroke="currentColor" stroke-width="1.5" />
-                                        </svg>
-                                        Call
-                                    </a>
-
-                                    <a href="https://wa.me/60125063488" target="_blank" aria-label="WhatsApp">
-                                        <!-- WhatsApp -->
-                                        <svg viewBox="0 0 24 24">
-                                            <path d="M20 12a8 8 0 1 1-14.3-5L4 20l4-1.7A8 8 0 0 1 20 12z" fill="none"
-                                                stroke="currentColor" stroke-width="1.5" />
-                                            <path d="M9 9c1 2 2 3 4 4" fill="none" stroke="currentColor"
-                                                stroke-width="1.5" />
-                                        </svg>
-                                        WhatsApp
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
-
-                        <!-- Bride -->
-                        <li>
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                                <circle cx="12" cy="7" r="3" fill="none" stroke="currentColor" stroke-width="1.5" />
-                                <path d="M5 20l2-6h10l2 6" fill="none" stroke="currentColor" stroke-width="1.5" />
-                                <path d="M7 14l5-4 5 4" fill="none" stroke="currentColor" stroke-width="1.5" />
-                            </svg>
-
-                            <div>
-                                <strong>Dinesha</strong>
-                                <span class="role">Bride</span>
-
-                                <div class="contact-actions">
-                                    <a href="tel:+60125065557">
-                                        <svg viewBox="0 0 24 24">
-                                            <path d="M5 4l4 1-1.5 3a12 12 0 0 0 6 6l3-1.5 1 4-3 2c-6-2-10-6-12-12z"
-                                                fill="none" stroke="currentColor" stroke-width="1.5" />
-                                        </svg>
-                                        Call (MY)
-                                    </a>
-
-                                    <a href="https://wa.me/60125065557" target="_blank">
-                                        <svg viewBox="0 0 24 24">
-                                            <path d="M20 12a8 8 0 1 1-14.3-5L4 20l4-1.7A8 8 0 0 1 20 12z" fill="none"
-                                                stroke="currentColor" stroke-width="1.5" />
-                                            <path d="M9 9c1 2 2 3 4 4" fill="none" stroke="currentColor"
-                                                stroke-width="1.5" />
-                                        </svg>
-                                        WhatsApp
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
-
-                        <!-- Groom -->
                         <li>
                             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
                                 <circle cx="12" cy="7" r="3" fill="none" stroke="currentColor" stroke-width="1.5" />
                                 <path d="M8 20v-5l4-2 4 2v5" fill="none" stroke="currentColor" stroke-width="1.5" />
                                 <path d="M10 10l2 2 2-2" fill="none" stroke="currentColor" stroke-width="1.5" />
                             </svg>
-
                             <div>
-                                <strong>Tomasz</strong>
-                                <span class="role">Groom</span>
-
+                                <strong>Dr. Kanagasundaram</strong>
+                                <span class="role">Father of the Bride</span>
                                 <div class="contact-actions">
                                     <a href="tel:+447466774973">
                                         <svg viewBox="0 0 24 24">
@@ -287,7 +228,6 @@
                                         </svg>
                                         Call
                                     </a>
-
                                     <a href="https://wa.me/447466774973" target="_blank">
                                         <svg viewBox="0 0 24 24">
                                             <path d="M20 12a8 8 0 1 1-14.3-5L4 20l4-1.7A8 8 0 0 1 20 12z" fill="none"
@@ -300,7 +240,35 @@
                                 </div>
                             </div>
                         </li>
-
+                        <li>
+                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="12" cy="7" r="3" fill="none" stroke="currentColor" stroke-width="1.5" />
+                                <path d="M5 20l2-6h10l2 6" fill="none" stroke="currentColor" stroke-width="1.5" />
+                                <path d="M7 14l5-4 5 4" fill="none" stroke="currentColor" stroke-width="1.5" />
+                            </svg>
+                            <div>
+                                <strong>Malar</strong>
+                                <span class="role">Aunt of the Bride</span>
+                                <div class="contact-actions">
+                                    <a href="tel:+60125065557">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M5 4l4 1-1.5 3a12 12 0 0 0 6 6l3-1.5 1 4-3 2c-6-2-10-6-12-12z"
+                                                fill="none" stroke="currentColor" stroke-width="1.5" />
+                                        </svg>
+                                        Call
+                                    </a>
+                                    <a href="https://wa.me/60125065557" target="_blank">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M20 12a8 8 0 1 1-14.3-5L4 20l4-1.7A8 8 0 0 1 20 12z" fill="none"
+                                                stroke="currentColor" stroke-width="1.5" />
+                                            <path d="M9 9c1 2 2 3 4 4" fill="none" stroke="currentColor"
+                                                stroke-width="1.5" />
+                                        </svg>
+                                        WhatsApp
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </aside>
@@ -312,41 +280,158 @@
                 <h3 class="title" id="comment-heading">Leave a Message</h3>
 
                 <div class="message-form">
-                    <input type="text" id="guestName" placeholder="Your Name">
-                    <textarea id="guestMessage" placeholder="Write a message..."></textarea>
-                    <button onclick="addMessage()">Send</button>
+                    <input type="text" id="guestName" placeholder="Your Name" maxlength="50">
+                    <textarea id="guestMessage" placeholder="Write your warm wishes and blessings..."
+                        maxlength="280"></textarea>
+                    <div class="form-actions">
+                        <button id="commentBtn" class="comment-btn" onclick="addMessage()">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                            </svg>
+                            Send Message
+                        </button>
+                        <button id="giftBtn" class="gift-btn" onclick="openGiftPopup()">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M20 12v10H4V12M22 7H2v5h20V7zM12 22V7M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z" />
+                            </svg>
+                            Send Gift
+                        </button>
+                    </div>
                 </div>
 
                 <div class="message-list" id="messageList"></div>
             </div>
         </section>
 
+        <!-- GIFT POPUP (QR Code Modal) -->
+        <div id="giftPopup" class="gift-popup">
+            <div class="gift-popup-content">
+                <div class="gift-popup-header">
+                    <div class="popup-header-bg">
+                        <svg class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path
+                                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                        </svg>
+                    </div>
+                    <div class="popup-title">
+                        <h3>Gifts & Blessings</h3>
+                        <p class="popup-subtitle">Your presence is our greatest gift</p>
+                    </div>
+                    <button class="close-btn" onclick="closeGiftPopup()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 6L6 18M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="gift-popup-body">
+                    <div class="gift-intro">
+                        <p>For those who wish to bless us with a gift, we are grateful for your generosity.
+                            Your love and support mean the world to us.</p>
+                    </div>
+
+                    <div class="gift-options">
+                        <div class="gift-option qr-option">
+                            <div class="option-header">
+                                <svg class="option-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <path d="M3 3h6v6H3zM3 15h6v6H3zM15 3h6v6h-6zM9 9h6v6H9zM15 15h6v6h-6z" />
+                                </svg>
+                                <h4>Digital Transfer</h4>
+                            </div>
+                            <div class="qrcode-container">
+                                <div class="qrcode-frame">
+                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://pay.cimbclicks.com.my/tomasz-dinesha-wedding"
+                                        alt="QR Code for Bank Transfer" class="qrcode-img">
+                                    <div class="qrcode-overlay">
+                                        <svg class="scan-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2">
+                                            <path d="M7 7h10v10H7zM3 3v4M3 21v-4M21 3v4M21 21v-4" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <p class="qrcode-label">Scan with your banking app</p>
+                            </div>
+                        </div>
+
+                        <div class="gift-option bank-option">
+                            <div class="option-header">
+                                <svg class="option-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <path d="M3 6h18M3 10h18M3 14h18M3 18h18" />
+                                </svg>
+                                <h4>Bank Details</h4>
+                            </div>
+                            <div class="bank-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">Account Name</span>
+                                    <span class="detail-value">Tomasz & Dinesha Wedding</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Bank</span>
+                                    <span class="detail-value">Maybank</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Account Number</span>
+                                    <span class="detail-value">1234 5678 9012</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Reference</span>
+                                    <span class="detail-value">Your Name</span>
+                                </div>
+                            </div>
+                            <button class="copy-btn" onclick="copyBankDetails()">
+                                <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M8 5H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-2M16 5h2a2 2 0 012 2v10a2 2 0 01-2 2h-2" />
+                                    <path d="M11 13l3-3m0 0l3 3m-3-3v8" />
+                                </svg>
+                                Copy Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="gift-note">
+                        <svg class="note-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+                            <path d="M12 16v-4M12 8h.01" />
+                        </svg>
+                        <p>Your presence at our wedding is the greatest gift of all.
+                            For those who wish to contribute, we appreciate your kindness and blessings.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- RSVP -->
         <section class="wrap" aria-labelledby="rsvp-heading">
-            <div class="section-inner rsvp-card">
-
+            <div class="section-inner rsvp-card scroll-animate" id="rsvp">
                 <h3 class="title" id="rsvp-heading">RSVP</h3>
-                <p class="small" style="margin-bottom:1rem;">Please fill and submit — form is static for now.</p>
+                <p class="small" style="margin-bottom:1rem;">Please fill and submit.</p>
 
-                <form class="rsvp-grid" onsubmit="event.preventDefault(); alert('This is a static demo RSVP.');">
-
+                <form class="rsvp-grid" onsubmit="submitRSVP(event)">
                     <label class="small">Your name
-                        <input type="text" placeholder="Your full name" required>
+                        <input type="text" id="rsvpName" placeholder="Your full name" required>
                     </label>
 
                     <label class="small">Email
-                        <input type="email" placeholder="you@example.com" required>
+                        <input type="email" id="rsvpEmail" placeholder="you@example.com" required>
                     </label>
 
                     <label class="small">Attending?
-                        <select>
+                        <select id="rsvpAttendance">
                             <option>I am attending</option>
                             <option>Regretfully decline</option>
                         </select>
                     </label>
 
                     <label class="small">Guests
-                        <select>
+                        <select id="rsvpGuests">
                             <option>Myself</option>
                             <option>+1 Guest</option>
                             <option>Family</option>
@@ -354,11 +439,20 @@
                     </label>
 
                     <label class="small">Phone
-                        <input type="tel" placeholder="+6012345xxxx">
+                        <input type="tel" id="rsvpPhone" placeholder="+6012345xxxx">
                     </label>
 
-                    <button type="submit">Submit RSVP</button>
+                    <label class="small">Message (Optional)
+                        <textarea id="rsvpMessage"
+                            placeholder="Any dietary requirements or special requests?"></textarea>
+                    </label>
 
+                    <button type="submit" class="rsvp-submit-btn">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        Submit RSVP
+                    </button>
                 </form>
             </div>
         </section>
@@ -374,6 +468,10 @@
     <script src="js/countdown.js"></script>
     <script src="js/timeline.js"></script>
     <script src="js/comment.js"></script>
+    <script src="js/gift.js"></script>
+    <script src="js/scroll-animations.js"></script>
+    <script src="js/cursor.js"></script>
+    <script src="js/main.js"></script>
 
 </body>
 
