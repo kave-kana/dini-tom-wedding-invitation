@@ -1,79 +1,111 @@
-// Timeline functionality
-document.addEventListener('DOMContentLoaded', function() {
+// Timeline Navigation
+document.addEventListener('DOMContentLoaded', function () {
     const timelineButtons = document.querySelectorAll('.timeline button');
-    const eventSections = document.querySelectorAll('.event-section');
     const timelineLabels = document.querySelectorAll('.timeline-labels span');
-    
-    function setActiveEvent(eventId) {
-        // Remove active class from all
-        eventSections.forEach(section => {
-            section.classList.remove('active');
-        });
-        
-        timelineButtons.forEach(button => {
-            button.classList.remove('active');
-        });
-        
-        // Add active class to selected
-        const activeSection = document.getElementById(eventId);
-        if (activeSection) {
-            activeSection.classList.add('active');
-        }
-        
-        const activeButton = document.querySelector(`.timeline button[data-event="${eventId}"]`);
-        if (activeButton) {
-            activeButton.classList.add('active');
-        }
-    }
-    
-    // Add click event to timeline buttons
-    timelineButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const eventId = this.getAttribute('data-event');
-            setActiveEvent(eventId);
-        });
-    });
-    
-    // Add click event to timeline labels
-    timelineLabels.forEach((label, index) => {
-        label.style.cursor = 'pointer';
-        label.addEventListener('click', function() {
-            const eventIds = ['arrival', 'ceremony', 'lunch', 'closing'];
-            if (eventIds[index]) {
-                setActiveEvent(eventIds[index]);
+    const track = document.querySelector('.events-track');
+    const slides = document.querySelectorAll('.event-slide');
+
+    // Initialize first slide
+    let currentSlide = 0;
+
+    // Function to update active state
+    function updateActiveState(index) {
+        // Update buttons
+        timelineButtons.forEach(btn => btn.classList.remove('active'));
+        timelineButtons[index].classList.add('active');
+
+        // Update labels
+        timelineLabels.forEach((label, i) => {
+            if (i === index) {
+                label.style.color = '#8B7355';
+                label.style.fontWeight = '600';
+            } else {
+                label.style.color = '';
+                label.style.fontWeight = '';
             }
         });
-    });
-    
-    // Auto-rotate timeline every 5 seconds
-    let currentIndex = 0;
-    const eventIds = ['arrival', 'ceremony', 'lunch', 'closing'];
-    
-    function autoRotateTimeline() {
-        currentIndex = (currentIndex + 1) % eventIds.length;
-        setActiveEvent(eventIds[currentIndex]);
+
+        // Update slide position
+        track.style.transform = `translateX(-${index * 100}%)`;
+        currentSlide = index;
     }
-    
-    // Start auto-rotation
-    let timelineInterval = setInterval(autoRotateTimeline, 5000);
-    
-    // Pause auto-rotation on hover
-    const timelineContainer = document.querySelector('.schedule-container');
-    timelineContainer.addEventListener('mouseenter', function() {
-        clearInterval(timelineInterval);
-    });
-    
-    timelineContainer.addEventListener('mouseleave', function() {
-        timelineInterval = setInterval(autoRotateTimeline, 5000);
-    });
-    
-    // View on Map button
-    const mapBtn = document.querySelector('.btn-map');
-    if (mapBtn) {
-        mapBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const address = "Jasmine+Banquet+Hall+Petaling+Jaya+Selangor+Malaysia";
-            window.open(`https://www.google.com/maps/search/?api=1&query=${address}`, '_blank');
+
+    // Add click events to timeline buttons
+    timelineButtons.forEach((button, index) => {
+        button.addEventListener('click', () => {
+            updateActiveState(index);
+
+            // Add click animation
+            button.style.animation = 'pulse 0.5s ease';
+            setTimeout(() => {
+                button.style.animation = '';
+            }, 500);
         });
+    });
+
+    // Add click events to timeline labels
+    timelineLabels.forEach((label, index) => {
+        label.addEventListener('click', () => {
+            updateActiveState(index);
+        });
+    });
+
+    // Auto-advance slides every 5 seconds
+    let slideInterval = setInterval(() => {
+        let nextSlide = (currentSlide + 1) % slides.length;
+        updateActiveState(nextSlide);
+    }, 5000);
+
+    // Pause auto-advance on hover
+    const sliderContainer = document.querySelector('.schedule-container');
+    sliderContainer.addEventListener('mouseenter', () => {
+        clearInterval(slideInterval);
+    });
+
+    sliderContainer.addEventListener('mouseleave', () => {
+        slideInterval = setInterval(() => {
+            let nextSlide = (currentSlide + 1) % slides.length;
+            updateActiveState(nextSlide);
+        }, 5000);
+    });
+
+    // Add keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            let prevSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateActiveState(prevSlide);
+        } else if (e.key === 'ArrowRight') {
+            let nextSlide = (currentSlide + 1) % slides.length;
+            updateActiveState(nextSlide);
+        }
+    });
+
+    // Add swipe functionality for touch devices
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    track.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, false);
+
+    track.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, false);
+
+    function handleSwipe() {
+        const swipeThreshold = 50;
+
+        if (touchEndX < touchStartX - swipeThreshold) {
+            // Swipe left - next slide
+            let nextSlide = (currentSlide + 1) % slides.length;
+            updateActiveState(nextSlide);
+        }
+
+        if (touchEndX > touchStartX + swipeThreshold) {
+            // Swipe right - previous slide
+            let prevSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateActiveState(prevSlide);
+        }
     }
 });

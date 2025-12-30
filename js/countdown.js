@@ -2,55 +2,59 @@
 function updateCountdown() {
     const weddingDate = new Date('August 30, 2026 09:00:00').getTime();
     const now = new Date().getTime();
-    const distance = weddingDate - now;
-    
-    // Calculate days, hours, minutes, seconds
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-    // Update hero countdown
-    document.getElementById('days-hero').textContent = days.toString().padStart(2, '0');
-    document.getElementById('hours-hero').textContent = hours.toString().padStart(2, '0');
-    document.getElementById('minutes-hero').textContent = minutes.toString().padStart(2, '0');
-    document.getElementById('seconds-hero').textContent = seconds.toString().padStart(2, '0');
-    
-    // Update main countdown
-    document.getElementById('days-main').textContent = days.toString().padStart(2, '0');
-    document.getElementById('hours-main').textContent = hours.toString().padStart(2, '0');
-    document.getElementById('minutes-main').textContent = minutes.toString().padStart(2, '0');
-    document.getElementById('seconds-main').textContent = seconds.toString().padStart(2, '0');
-    
-    // Update attendance counter (demo - random for now)
-    if (Math.random() > 0.7) {
-        const attendNumber = document.querySelector('.attend-number');
-        const current = parseInt(attendNumber.textContent);
-        if (current < 120) {
-            attendNumber.textContent = (current + 1).toString().padStart(2, '0');
+    const timeLeft = weddingDate - now;
+
+    if (timeLeft < 0) {
+        document.getElementById('days').textContent = '00';
+        document.getElementById('hours').textContent = '00';
+        document.getElementById('minutes').textContent = '00';
+        document.getElementById('seconds').textContent = '00';
+        return;
+    }
+
+    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+    // Add animation for number changes
+    const animateNumber = (element, newValue) => {
+        if (element.textContent !== newValue.toString().padStart(2, '0')) {
+            element.classList.add('changing');
+            setTimeout(() => {
+                element.textContent = newValue.toString().padStart(2, '0');
+                element.classList.remove('changing');
+            }, 150);
         }
+    };
+
+    animateNumber(document.getElementById('days'), days);
+    animateNumber(document.getElementById('hours'), hours);
+    animateNumber(document.getElementById('minutes'), minutes);
+    animateNumber(document.getElementById('seconds'), seconds);
+
+    // Update attendee counter randomly (for demo)
+    if (Math.random() > 0.95) {
+        const currentCount = parseInt(document.getElementById('attendeeCount').textContent);
+        const newCount = currentCount < 150 ? currentCount + 1 : currentCount;
+        document.getElementById('attendeeCount').textContent = newCount.toString().padStart(2, '0');
     }
 }
 
-// Initialize countdown
+// Update countdown immediately and then every second
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
-// Save the Date button functionality
-document.querySelectorAll('.cta-btn').forEach(btn => {
-    if (btn.textContent.includes('Save the Date')) {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            alert('Save the Date: August 30, 2026\nLocation: Jasmine Banquet Hall\nWe look forward to celebrating with you!');
-        });
+// Add styles for number animation
+const style = document.createElement('style');
+style.textContent = `
+    .time.changing {
+        animation: pulse 0.3s ease;
     }
-    
-    if (btn.textContent.includes('RSVP')) {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelector('#rsvp-heading').scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
     }
-});
+`;
+document.head.appendChild(style);
