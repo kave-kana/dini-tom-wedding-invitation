@@ -1370,6 +1370,124 @@ footer {
 }
 
 /* ----------------------------------------------------------
+   MUSIC CONTROL
+---------------------------------------------------------- */
+.music-control {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+#musicToggle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+#musicToggle:hover {
+  background: var(--gold-light);
+  transform: scale(1.1);
+}
+
+#musicToggle.playing {
+  background: var(--gold);
+  color: white;
+}
+
+#musicToggle.playing #musicIcon {
+  stroke: white;
+}
+
+#musicIcon {
+  width: 24px;
+  height: 24px;
+  stroke: var(--gold);
+}
+
+/* Volume Control */
+.volume-control {
+  background: white;
+  padding: 10px;
+  border-radius: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(139, 115, 85, 0.1);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.music-control:hover .volume-control {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+#volumeSlider {
+  width: 100px;
+  height: 4px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: linear-gradient(90deg, var(--gold) 30%, rgba(139, 115, 85, 0.2) 30%);
+  border-radius: 2px;
+  outline: none;
+}
+
+#volumeSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--gold);
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#volumeSlider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--gold);
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#volumeSlider:hover {
+  opacity: 1;
+}
+
+/* Audio Loading State */
+#musicToggle.loading #musicIcon {
+  animation: spin 1s linear infinite;
+}
+
+/* Audio Error State */
+#musicToggle.error {
+  background: #ffebee;
+  border-color: #f44336;
+}
+
+#musicToggle.error #musicIcon {
+  stroke: #f44336;
+}
+
+/* ----------------------------------------------------------
    DESKTOP: CENTERED PHONE VIEW
 ---------------------------------------------------------- */
 @media (min-width: 900px) {
